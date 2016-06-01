@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/build.sbt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/scala/HelloWorld.scala" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/scala/feature/FeatID.scala" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/scala/feature/FeatOHEID.scala" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/scala/feature/FeatOnGap.scala" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/scala/feature/FeatUser.scala" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/scala/feature/FeatWeek.scala" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/scala/feature/FeatWeekDay.scala" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/scala/sample/SampleBuild.scala" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

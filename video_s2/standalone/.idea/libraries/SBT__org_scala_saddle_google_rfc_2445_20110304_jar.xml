@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SBT: org.scala-saddle:google-rfc-2445:20110304:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-saddle/google-rfc-2445/jars/google-rfc-2445-20110304.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.scala-saddle/google-rfc-2445/srcs/google-rfc-2445-20110304-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

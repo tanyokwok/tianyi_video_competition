@@ -1,0 +1,13 @@
+video_s2_submit/
+video_s2/temp_data/
+video_s2/video-visit-data.txt
+video_s2/UserAction/data/
+video_s2/*/out/
+video_s2/*/target/
+video_s2/*/test-data/
+video_s2/*/project/
+video_click/out/
+video_predict/out/
+video_predict/target/
+video_predict/project/
+

@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_standalone-build" default="compile.module.standalone-build">
+  <dirname property="module.standalone-build.basedir" file="${ant.file.module_standalone-build}"/>
+  
+  <property name="module.jdk.home.standalone-build" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.standalone-build" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.standalone-build" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.standalone-build" value="-encoding UTF-8 -source 1.7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="standalone-build.output.dir" value="${module.standalone-build.basedir}/../../project/target/idea-classes"/>
+  <property name="standalone-build.testoutput.dir" value="${module.standalone-build.basedir}/../../project/target/idea-test-classes"/>
+  
+  <path id="standalone-build.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="standalone-build.module.production.classpath">
+    <path refid="${module.jdk.classpath.standalone-build}"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/jansi.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/jline.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-compiler.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-library.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-reflect.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/actions-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/api-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/apply-macro-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/cache-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/classfile-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/classpath-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/collections-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/command-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compile-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compiler-integration-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compiler-ivy-integration-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/completion-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/control-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/cross-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/incremental-compiler-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/io-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/ivy-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/ivy-2.3.0-sbt-fccfbd44c9f64523b61398a0155784dcbaeae28f.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jawn-parser_2.10-0.6.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jline-2.11.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jsch-0.1.46.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-ast_2.10-3.2.10.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-core_2.10-3.2.10.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-support_2.10-0.6.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/launcher-interface-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/logging-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/logic-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/main-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/main-settings-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/paranamer-2.6.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/persist-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/process-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/quasiquotes_2.10-2.0.1.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/relation-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/run-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/sbinary_2.10-0.4.2.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/sbt-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/scala-pickling_2.10-0.10.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/scala-reflect-2.10.4.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/serialization_2.10-0.1.1.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/task-system-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/tasks-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/test-agent-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/test-interface-1.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/testing-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/tracking-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/xsbti/interface-0.13.8.jar"/>
+  </path>
+  
+  <path id="standalone-build.runtime.production.module.classpath">
+    <pathelement location="${standalone-build.output.dir}"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/jansi.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/jline.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-compiler.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-library.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-reflect.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/actions-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/api-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/apply-macro-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/cache-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/classfile-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/classpath-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/collections-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/command-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compile-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compiler-integration-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compiler-ivy-integration-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/completion-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/control-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/cross-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/incremental-compiler-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/io-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/ivy-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/ivy-2.3.0-sbt-fccfbd44c9f64523b61398a0155784dcbaeae28f.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jawn-parser_2.10-0.6.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jline-2.11.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jsch-0.1.46.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-ast_2.10-3.2.10.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-core_2.10-3.2.10.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-support_2.10-0.6.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/launcher-interface-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/logging-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/logic-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/main-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/main-settings-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/paranamer-2.6.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/persist-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/process-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/quasiquotes_2.10-2.0.1.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/relation-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/run-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/sbinary_2.10-0.4.2.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/sbt-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/scala-pickling_2.10-0.10.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/scala-reflect-2.10.4.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/serialization_2.10-0.1.1.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/task-system-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/tasks-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/test-agent-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/test-interface-1.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/testing-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/tracking-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/xsbti/interface-0.13.8.jar"/>
+  </path>
+  
+  <path id="standalone-build.module.classpath">
+    <path refid="${module.jdk.classpath.standalone-build}"/>
+    <pathelement location="${standalone-build.output.dir}"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/jansi.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/jline.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-compiler.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-library.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-reflect.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/actions-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/api-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/apply-macro-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/cache-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/classfile-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/classpath-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/collections-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/command-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compile-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compiler-integration-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compiler-ivy-integration-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/completion-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/control-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/cross-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/incremental-compiler-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/io-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/ivy-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/ivy-2.3.0-sbt-fccfbd44c9f64523b61398a0155784dcbaeae28f.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jawn-parser_2.10-0.6.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jline-2.11.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jsch-0.1.46.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-ast_2.10-3.2.10.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-core_2.10-3.2.10.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-support_2.10-0.6.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/launcher-interface-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/logging-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/logic-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/main-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/main-settings-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/paranamer-2.6.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/persist-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/process-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/quasiquotes_2.10-2.0.1.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/relation-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/run-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/sbinary_2.10-0.4.2.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/sbt-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/scala-pickling_2.10-0.10.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/scala-reflect-2.10.4.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/serialization_2.10-0.1.1.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/task-system-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/tasks-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/test-agent-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/test-interface-1.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/testing-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/tracking-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/xsbti/interface-0.13.8.jar"/>
+  </path>
+  
+  <path id="standalone-build.runtime.module.classpath">
+    <pathelement location="${standalone-build.testoutput.dir}"/>
+    <pathelement location="${standalone-build.output.dir}"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/jansi.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/jline.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-compiler.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-library.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/lib/scala-reflect.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/actions-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/api-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/apply-macro-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/cache-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/classfile-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/classpath-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/collections-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/command-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compile-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compiler-integration-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/compiler-ivy-integration-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/completion-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/control-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/cross-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/incremental-compiler-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/io-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/ivy-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/ivy-2.3.0-sbt-fccfbd44c9f64523b61398a0155784dcbaeae28f.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jawn-parser_2.10-0.6.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jline-2.11.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/jsch-0.1.46.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-ast_2.10-3.2.10.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-core_2.10-3.2.10.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/json4s-support_2.10-0.6.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/launcher-interface-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/logging-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/logic-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/main-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/main-settings-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/paranamer-2.6.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/persist-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/process-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/quasiquotes_2.10-2.0.1.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/relation-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/run-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/sbinary_2.10-0.4.2.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/sbt-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/scala-pickling_2.10-0.10.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/scala-reflect-2.10.4.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/serialization_2.10-0.1.1.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/task-system-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/tasks-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/test-agent-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/test-interface-1.0.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/testing-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/tracking-0.13.8.jar"/>
+    <pathelement location="C:/Users/Administrator/.sbt/boot/scala-2.10.4/org.scala-sbt/sbt/0.13.8/xsbti/interface-0.13.8.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.standalone-build">
+    <patternset refid="ignored.files"/>
+    <exclude name="target/**"/>
+    <exclude name="target/streams/**"/>
+    <exclude name="target/streams/$global/**"/>
+    <exclude name="target/streams/$global/ivySbt/**"/>
+    <exclude name="target/streams/$global/ivySbt/$global/**"/>
+    <exclude name="target/streams/$global/ivySbt/$global/streams/**"/>
+    <exclude name="target/streams/$global/update/**"/>
+    <exclude name="target/streams/$global/update/$global/**"/>
+    <exclude name="target/streams/$global/update/$global/streams/**"/>
+    <exclude name="target/streams/$global/update/$global/streams/update_cache_2.10/**"/>
+    <exclude name="target/streams/$global/$global/**"/>
+    <exclude name="target/streams/$global/$global/$global/**"/>
+    <exclude name="target/streams/$global/$global/$global/streams/**"/>
+    <exclude name="target/streams/$global/ivyConfiguration/**"/>
+    <exclude name="target/streams/$global/ivyConfiguration/$global/**"/>
+    <exclude name="target/streams/$global/ivyConfiguration/$global/streams/**"/>
+    <exclude name="target/streams/$global/projectDescriptors/**"/>
+    <exclude name="target/streams/$global/projectDescriptors/$global/**"/>
+    <exclude name="target/streams/$global/projectDescriptors/$global/streams/**"/>
+    <exclude name="target/streams/$global/dependencyPositions/**"/>
+    <exclude name="target/streams/$global/dependencyPositions/$global/**"/>
+    <exclude name="target/streams/$global/dependencyPositions/$global/streams/**"/>
+    <exclude name="target/streams/$global/dependencyPositions/$global/streams/update_cache_2.10/**"/>
+    <exclude name="target/streams/compile/**"/>
+    <exclude name="target/streams/compile/$global/**"/>
+    <exclude name="target/streams/compile/$global/$global/**"/>
+    <exclude name="target/streams/compile/$global/$global/discoveredMainClasses/**"/>
+    <exclude name="target/streams/compile/compile/**"/>
+    <exclude name="target/streams/compile/compile/$global/**"/>
+    <exclude name="target/streams/compile/compile/$global/streams/**"/>
+    <exclude name="target/streams/compile/copyResources/**"/>
+    <exclude name="target/streams/compile/copyResources/$global/**"/>
+    <exclude name="target/streams/compile/copyResources/$global/streams/**"/>
+    <exclude name="target/streams/compile/unmanagedJars/**"/>
+    <exclude name="target/streams/compile/unmanagedJars/$global/**"/>
+    <exclude name="target/streams/compile/unmanagedJars/$global/streams/**"/>
+    <exclude name="target/streams/compile/incCompileSetup/**"/>
+    <exclude name="target/streams/compile/incCompileSetup/$global/**"/>
+    <exclude name="target/streams/compile/incCompileSetup/$global/streams/**"/>
+    <exclude name="target/streams/compile/exportedProducts/**"/>
+    <exclude name="target/streams/compile/exportedProducts/$global/**"/>
+    <exclude name="target/streams/compile/exportedProducts/$global/streams/**"/>
+    <exclude name="target/streams/compile/managedClasspath/**"/>
+    <exclude name="target/streams/compile/managedClasspath/$global/**"/>
+    <exclude name="target/streams/compile/managedClasspath/$global/streams/**"/>
+    <exclude name="target/streams/compile/compileIncremental/**"/>
+    <exclude name="target/streams/compile/compileIncremental/$global/**"/>
+    <exclude name="target/streams/compile/compileIncremental/$global/streams/**"/>
+    <exclude name="target/streams/compile/unmanagedClasspath/**"/>
+    <exclude name="target/streams/compile/unmanagedClasspath/$global/**"/>
+    <exclude name="target/streams/compile/unmanagedClasspath/$global/streams/**"/>
+    <exclude name="target/streams/compile/dependencyClasspath/**"/>
+    <exclude name="target/streams/compile/dependencyClasspath/$global/**"/>
+    <exclude name="target/streams/compile/dependencyClasspath/$global/streams/**"/>
+    <exclude name="target/streams/compile/externalDependencyClasspath/**"/>
+    <exclude name="target/streams/compile/externalDependencyClasspath/$global/**"/>
+    <exclude name="target/streams/compile/externalDependencyClasspath/$global/streams/**"/>
+    <exclude name="target/streams/compile/internalDependencyClasspath/**"/>
+    <exclude name="target/streams/compile/internalDependencyClasspath/$global/**"/>
+    <exclude name="target/streams/compile/internalDependencyClasspath/$global/streams/**"/>
+    <exclude name="target/streams/runtime/**"/>
+    <exclude name="target/streams/runtime/fullClasspath/**"/>
+    <exclude name="target/streams/runtime/fullClasspath/$global/**"/>
+    <exclude name="target/streams/runtime/fullClasspath/$global/streams/**"/>
+    <exclude name="target/streams/runtime/unmanagedJars/**"/>
+    <exclude name="target/streams/runtime/unmanagedJars/$global/**"/>
+    <exclude name="target/streams/runtime/unmanagedJars/$global/streams/**"/>
+    <exclude name="target/streams/runtime/exportedProducts/**"/>
+    <exclude name="target/streams/runtime/exportedProducts/$global/**"/>
+    <exclude name="target/streams/runtime/exportedProducts/$global/streams/**"/>
+    <exclude name="target/streams/runtime/managedClasspath/**"/>
+    <exclude name="target/streams/runtime/managedClasspath/$global/**"/>
+    <exclude name="target/streams/runtime/managedClasspath/$global/streams/**"/>
+    <exclude name="target/streams/runtime/unmanagedClasspath/**"/>
+    <exclude name="target/streams/runtime/unmanagedClasspath/$global/**"/>
+    <exclude name="target/streams/runtime/unmanagedClasspath/$global/streams/**"/>
+    <exclude name="target/streams/runtime/dependencyClasspath/**"/>
+    <exclude name="target/streams/runtime/dependencyClasspath/$global/**"/>
+    <exclude name="target/streams/runtime/dependencyClasspath/$global/streams/**"/>
+    <exclude name="target/streams/runtime/externalDependencyClasspath/**"/>
+    <exclude name="target/streams/runtime/externalDependencyClasspath/$global/**"/>
+    <exclude name="target/streams/runtime/externalDependencyClasspath/$global/streams/**"/>
+    <exclude name="target/streams/runtime/internalDependencyClasspath/**"/>
+    <exclude name="target/streams/runtime/internalDependencyClasspath/$global/**"/>
+    <exclude name="target/streams/runtime/internalDependencyClasspath/$global/streams/**"/>
+    <exclude name="target/scala-2.10/**"/>
+    <exclude name="target/scala-2.10/sbt-0.13/**"/>
+    <exclude name="target/config-classes/**"/>
+    <exclude name="target/resolution-cache/**"/>
+    <exclude name="target/resolution-cache/default/**"/>
+    <exclude name="target/resolution-cache/default/standalone-build/**"/>
+    <exclude name="target/resolution-cache/default/standalone-build/scala_2.10/**"/>
+    <exclude name="target/resolution-cache/default/standalone-build/scala_2.10/sbt_0.13/**"/>
+    <exclude name="target/resolution-cache/default/standalone-build/scala_2.10/sbt_0.13/0.1-SNAPSHOT/**"/>
+    <exclude name="target/resolution-cache/reports/**"/>
+    <exclude name="project/target/**"/>
+    <exclude name="project/target/config-classes/**"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.standalone-build">
+    <patternset refid="excluded.from.module.standalone-build"/>
+  </patternset>
+  
+  <path id="standalone-build.module.sourcepath">
+    <dirset dir="${module.standalone-build.basedir}/../../../AllAsSample">
+      <include name="project"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.standalone-build" depends="compile.module.standalone-build.production,compile.module.standalone-build.tests" description="Compile module standalone-build"/>
+  
+  <target name="compile.module.standalone-build.production" depends="register.custom.compilers" description="Compile module standalone-build; production classes">
+    <mkdir dir="${standalone-build.output.dir}"/>
+    <javac2 destdir="${standalone-build.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.standalone-build}/javac">
+      <compilerarg line="${compiler.args.standalone-build}"/>
+      <bootclasspath refid="standalone-build.module.bootclasspath"/>
+      <classpath refid="standalone-build.module.production.classpath"/>
+      <src refid="standalone-build.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.standalone-build"/>
+    </javac2>
+    
+    <copy todir="${standalone-build.output.dir}">
+      <fileset dir="${module.standalone-build.basedir}/../../project">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.standalone-build.tests" depends="register.custom.compilers,compile.module.standalone-build.production" description="compile module standalone-build; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.standalone-build" description="cleanup module">
+    <delete dir="${standalone-build.output.dir}"/>
+    <delete dir="${standalone-build.testoutput.dir}"/>
+  </target>
+</project>
